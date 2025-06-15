@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Project Int.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background-color: #f17216;
+      color: #ffffff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #f17216;
+      position: relative;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 80px;
+      transition: height 0.3s ease;
+    }
+
+    nav {
+      /* desktop nav styles */
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 20px;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 30px;
+    }
+
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grid-item span {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      padding: 2px 5px;
+      font-size: 50px;
+      font-family: 'Playfair Display', serif;
+      z-index: 2;
+      user-select: none;
+      max-width: 90%;
+      white-space: normal; /* allow wrapping */
+      line-height: 1.1;
+    }
+
+    /* Different text colors for each box */
+    .grid-item:nth-child(1) span {
+      color: #000000; /* Writers - black */
+    }
+
+    .grid-item:nth-child(2) span {
+      color: #ffffff; /* Actors - white */
+    }
+
+    .grid-item:nth-child(3) span {
+      color: #000000; /* Cinemotographers - black */
+    }
+
+    .grid-item:nth-child(4) span {
+      color: #000000; /* Music Dir. - black */
+    }
+
+    .grid-item:nth-child(5) span {
+      color: #ffffff; /* Editors - white */
+    }
+
+    .grid-item:nth-child(6) span {
+      color: #000000; /* Producers - black */
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #000;
+      border-radius: 2px;
+      transition: transform 0.4s ease;
+    }
+
+    .grid-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .grid-item a {
+      display: block;
+      height: 100%;
+    }
+
+    footer {
+      text-align: right;
+      padding: 20px;
+      color: white;
+      font-size: 0.75em;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile nav - hidden by default */
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      header img {
+        height: 60px;
+      }
+
+      nav a {
+        font-size: 18px;
+        margin-left: 0;
+        padding: 15px 20px;
+        display: block;
+        color: white;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .grid-item span {
+        font-size: 30px; /* smaller font on mobile */
+      }
+
+      /* Show hamburger */
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        right: -250px; /* hide offscreen */
+        height: 100%;
+        width: 250px;
+        background-color: #f17216;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 70px;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+      }
+
+      nav.open {
+        right: 0;
+      }
+
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav ul li {
+        width: 100%;
+      }
+    }
+
+    /* Hamburger animation when open */
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/randomprojint.png" alt="Logo" />
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="nav-menu" aria-hidden="true">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutsection.html" target="_blank">About</a></li>
+        <li><a href="projectclub.html">Projects</a></li>
+        <li><a href="randomplay.html">The Player</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="grid" id="work">
+    <div class="grid-item">
+      <a href="https://forms.gle/i8Q1k8u8Ax7vkQhz5" target="_blank">
+        <span>Writers</span>
+        <img src="images/writer.jpg" alt="writer" />
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://forms.gle/yWdwFJ2tBQXdKDMy8" target="_blank">
+        <span>Actors</span>
+        <img src="images/aktors.jpg" alt="actors" />
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://forms.gle/gN9ubwgFtcNrFteb8" target="_blank">
+        <span>cinemotographers</span>
+        <img src="images/dopee.jpg" alt="dops" />
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://forms.gle/8yX2Dchw8GXLh4JW7" target="_blank">
+        <span>Music Directors</span>
+        <img src="images/musik.jpg" alt="musicians" />
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="images/standby.jpg" target="_blank">
+        <span>Editors</span>
+        <img src="images/editor.jpg" alt="editors" />
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="images/standby.jpg" target="_blank">
+        <span>Producers</span>
+        <img src="images/producers.jpg" alt="producers" />
+      </a>
+    </div>
+  </main>
+
+  <footer>©RandomFilms 2025</footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    function toggleMenu() {
+      const isOpen = navMenu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      navMenu.setAttribute('aria-hidden', !isOpen);
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Allow keyboard toggle with Enter or Space
+    hamburger.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+
+    // Close nav if clicking outside (optional)
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        if(navMenu.classList.contains('open')) {
+          toggleMenu();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
